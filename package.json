@@ -1,0 +1,30 @@
+{
+  "name": "hello-world-ts-babel-demo",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "repository": "git@github.com:m80126colin/hello-world-ts-babel-demo.git",
+  "author": "Hsu Karinsu <m80126colin@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf dist/",
+    "build": "yarn run clean && yarn run build:js && yarn run build:types",
+    "build:js": "npx babel --extensions '.ts' lib/ --out-dir dist/",
+    "build:types": "npx tsc --emitDeclarationOnly",
+    "dev": "npx babel-node --extensions '.ts' lib/index.ts",
+    "start": "yarn run build && node dist/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-typescript": "^7.3.3",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "core-js": "^3.1.4"
+  }
+}
